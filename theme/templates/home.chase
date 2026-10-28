@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="{ meta.lang }" class="notranslate">
+
+{@partial partials/head.sort}
+
+<body class="page-home">
+
+  {@partial partials/nav.sort}
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <header class="hero" id="overview">
+      <div class="shell hero-inner">
+        <div>
+          <h1>One&nbsp;meaning,<br><em>one&nbsp;form.</em></h1>
+          <p class="lede"><strong>Markdown stays nice, and becomes reliable.</strong> Markanto reads familiar Markdown tolerantly, gives it a strict semantic structure, and writes it back in exactly one canonical form per meaning.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="/spec/">Read the spec</a>
+            <a class="btn-link" href="/packages/">Install</a>
+          </div>
+        </div>
+        <figure class="sample">
+          <figcaption class="sample-head"><span class="sample-file"><img class="sample-ico" src="/favicon.svg" alt="" width="14" height="14" /> NOTES.MD</span><span>MARKANTO 0.1.0</span></figcaption>
+          <pre><code><span class="line"><span class="tok-h"># Release notes</span></span><span class="line"></span><span class="line">Written with <span class="tok-em">*emphasis*</span>, a</span><span class="line"><span class="tok-link">[link](/spec/)</span>, and one</span><span class="line"><span class="sample-swap tok-strong">**strong**</span> marker to fix.</span></code></pre>
+          <div class="sample-result">FORMAT &nbsp;&rarr;&nbsp; <b class="sample-verdict">CANONICAL &middot; 0 diagnostics</b></div>
+        </figure>
+      </div>
+    </header>
+
+    <!-- Status strip -->
+    <aside class="status">
+      <div class="shell status-inner">
+        <div class="stat"><span class="stat-label">Independent review</span><span class="stat-value">passed</span></div>
+        <div class="stat"><span class="stat-label">Specification</span><span class="stat-value">0.1.0 · frozen</span></div>
+        <div class="stat"><span class="stat-label">Reference parser</span><span class="stat-value">on npm</span></div>
+        <div class="stat"><span class="stat-label">License</span><span class="stat-value">ISC</span></div>
+      </div>
+    </aside>
+
+    <!-- 01 · What it is -->
+    <section class="section" id="what" aria-labelledby="what-h">
+      <div class="shell layout">
+        <p class="kicker">01 / What it is</p>
+        <div>
+          <h2 id="what-h">Lenient input.<br>One output.</h2>
+          <p class="intro"><strong>Read tolerantly, model strictly, serialise canonically.</strong> CommonMark standardises how Markdown is <em>read</em>; Markanto also standardises how it is <em>written</em> — it keeps the loose input authors expect and removes the loose output.</p>
+          <div class="reasons">
+            <article class="reason">
+              <span class="reason-no">Parser</span>
+              <h3>Tolerant on input</h3>
+              <p>Accepts the Markdown people actually write &mdash; irregular spacing, mixed emphasis markers, the usual GFM extensions &mdash; and models it in a strict, unambiguous AST. Forward-only scanning, bounded lookahead, no backtracking.</p>
+            </article>
+            <article class="reason">
+              <span class="reason-no">Formatter</span>
+              <h3>Exactly one output</h3>
+              <p>One way to write each construct back out. Reformatting is idempotent; two authors who mean the same thing produce identical bytes.</p>
+            </article>
+            <article class="reason">
+              <span class="reason-no">Validator</span>
+              <h3>A pure AST check</h3>
+              <p>Undefined footnote references, ID uniqueness, resource-attribute allowlists, quote nesting, table shape, the inline structural invariants &mdash; a function over the AST, independent of the parser.</p>
+            </article>
+          </div>
+          <div class="why">
+            <p><strong>Why not just Markdown?</strong> Markdown standardises how a document is <em>read</em> &mdash; never one way to write it back. Markanto adds a strict semantic structure and exactly one canonical form, so tools, pipelines, and agents transform a document and get the same bytes every time &mdash; and it stays Markdown you write by hand. A library models Markdown for one tool; Markanto makes that model a shared contract.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · The laws -->
+    <section class="section" id="laws" aria-labelledby="laws-h">
+      <div class="shell layout">
+        <p class="kicker">02 / The laws</p>
+        <div>
+          <h2 id="laws-h">Three laws hold.</h2>
+          <p class="intro">The canonical form is not a style preference. It is the property the parser, formatter, and validator are built to guarantee.</p>
+          <div class="reasons">
+            <article class="reason">
+              <span class="reason-no">01</span>
+              <h3>Semantic round-trip</h3>
+              <p><code>parse(format(doc))</code> is semantically equal to <code>doc</code>. Formatting never changes meaning.</p>
+            </article>
+            <article class="reason">
+              <span class="reason-no">02</span>
+              <h3>Idempotent</h3>
+              <p><code>format</code> run twice changes nothing the first run didn&rsquo;t. The canonical form is a fixed point.</p>
+            </article>
+            <article class="reason">
+              <span class="reason-no">03</span>
+              <h3>Equivalent input, same AST</h3>
+              <p>Non-canonical and canonical spellings of the same meaning parse to the same AST &mdash; and format to the same bytes.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · Graceful degradation -->
+    <section class="section" id="degrade" aria-labelledby="degrade-h">
+      <div class="shell layout">
+        <p class="kicker">03 / Degradation</p>
+        <div>
+          <h2 id="degrade-h">Still readable<br>as Markdown.</h2>
+          <p class="intro">Markanto-specific syntax is designed to degrade gracefully: in a plain Markdown renderer it should lose its meaning, never its readability. The canonical form stays machine-friendly without becoming machine-first &mdash; it is still Markdown a person writes by hand.</p>
+          <div class="security">
+            <article>
+              <code>&lt;m&gt; &lt;i&gt; &lt;b&gt;</code>
+              <h3>Three wrapper tags, not raw HTML</h3>
+              <p>The whole reserved vocabulary is <code>&lt;m&gt;</code> (metadata / resources), <code>&lt;i&gt;</code> and <code>&lt;b&gt;</code> (emphasis fallbacks) &mdash; the mnemonic is <strong>MIB</strong>. They are Markanto syntax, not a general HTML passthrough. Canonical output still prefers <code>*em*</code> and <code>**strong**</code>.</p>
+            </article>
+            <article>
+              <code>No plugin semantics</code>
+              <h3>Meaning travels with the document</h3>
+              <p>No added syntax, no compatibility aliases, no parser profiles that alter meaning, no heuristic media typing. An external profile must not change how identical source text is interpreted.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · Numbers -->
+    <section class="section" id="numbers" aria-labelledby="numbers-h">
+      <div class="shell layout">
+        <p class="kicker">04 / Numbers</p>
+        <div>
+          <h2 id="numbers-h">Numbers instead<br>of adjectives.</h2>
+          <p class="intro">Idempotent reformatting, stable diffs, and safe automated rewrites are only worth as much as the guarantees behind them. What those rest on, counted.</p>
+          <div class="ledger ledger--pairs">
+            <div class="ledger-head"><span>Measurement</span><span>0.1.0</span></div>
+            <div class="ledger-row"><strong>Conformance corpus</strong><span class="measure">583<small>cases · normal + strict</small></span></div>
+            <div class="ledger-row"><strong>Test suite</strong><span class="measure">1,898<small>tests, plus <code>verify:node</code></small></span></div>
+            <div class="ledger-row"><strong>CommonMark 0.31.2 / GFM classified</strong><span class="measure">672<small>vendored cases · 0 fail</small></span></div>
+            <div class="ledger-row"><strong>Property soak</strong><span class="measure">100k<small>seeded docs per stream</small></span></div>
+            <div class="ledger-row"><strong>Reserved wrapper tags</strong><span class="measure">3<small>down from 7 in the 0.5.3 drafts</small></span></div>
+            <div class="ledger-row"><strong>Runtime dependencies</strong><span class="measure">0<small>root entry point</small></span></div>
+          </div>
+          <p class="ledger-note">The language design and specification were independently audited (2026-08-30); an independent whole-repo review of the implementation returned a <strong>SHIP / FREEZE</strong> verdict &mdash; 0 blockers, 0 retained major findings. The full gate list is in the <a href="https://github.com/markantolang/markanto-js/blob/main/CHANGELOG.md">changelog</a>, and every v0.5.3 &rarr; 0.1.0 language delta is in <a href="https://github.com/markantolang/markanto-js/blob/main/docs/EVOLUTION_V053_TO_010.md"><code>EVOLUTION_V053_TO_010.md</code></a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Resource safety -->
+    <section class="section" id="safety" aria-labelledby="safety-h">
+      <div class="shell layout">
+        <p class="kicker">05 / Resource safety</p>
+        <div>
+          <h2 id="safety-h">Built for documents
+            <br>that tools touch.</h2>
+          <p class="intro">Formatting, validation, and automated rewrites stay predictable because meaning, canonical output, and resource limits are separate contracts. Every operation returns a tagged <code>status</code> union; a resource budget being exceeded is always distinct from the document being invalid.</p>
+          <div class="security">
+            <article>
+              <code>status: "resource"</code>
+              <h3>A bounded work budget</h3>
+              <p>The Grid occupancy matrix is bounded by a caller-tunable default (<code>DEFAULT_MAX_MATRIX_SLOTS</code>, 100&thinsp;000) and an absolute, non-overridable ceiling (<code>HARD_MAX_MATRIX_SLOTS</code>, 1&thinsp;000&thinsp;000). An over-budget matrix returns <code>resource</code>, never a native <code>RangeError</code>.</p>
+            </article>
+            <article>
+              <code>O(n) target</code>
+              <h3>Linear-time parsing</h3>
+              <p>A monotonic cursor, no backtracking over competing interpretations. The property gate includes a parser-linearity probe. The architecture is written to port mechanically to safe, idiomatic Rust.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · Implementation -->
+    <section class="section section--flush" id="implementation" aria-labelledby="impl-h">
+      <div class="shell layout">
+        <p class="kicker">06 / Implementation</p>
+        <div>
+          <h2 id="impl-h">One reference<br>implementation.</h2>
+          <p class="intro">TypeScript defines the AST, the canonical serialisation, and the conformance corpus any other implementation would be checked against. A Rust port is a deliberately kept-open option, not a current commitment.</p>
+          <div class="packages packages--list">
+            {#each site.packages as pkg}
+            <a class="package" href="{ pkg.url }">
+              <span class="package-lang">{ pkg.lang }</span>
+              <span class="package-name">{ pkg.name }</span>
+              <span class="package-registry">{ pkg.badge } &rarr;</span>
+              <span class="package-desc">{ pkg.desc }</span>
+            </a>
+            {/each}
+          </div>
+          <p class="prose-cta"><a class="btn-link" href="/packages/">Package details &amp; API</a></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  {@partial partials/footer.sort}
+
+</body>
+
+</html>

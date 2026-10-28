@@ -1,0 +1,62 @@
+site:
+  origin: https://markanto.org
+  since: 2026
+  owner: $(persons/mko)
+  repository: https://github.com/markantolang/markanto-js
+  default:
+    language: en
+    locale: en_US
+    title: Markanto
+    claim: A Markdown variant with one canonical form per meaning.
+    tagline: A Markdown variant that reads familiar Markdown tolerantly, gives it a strict semantic structure, and serialises exactly one canonical form per meaning.
+    description: "Markanto is a Markdown variant for robust, canonical, agent-ready documents: tolerant parsing, a strict semantic AST, and one canonical form per meaning."
+
+typography:
+  enabled: true
+
+comments:
+  enabled: false
+
+search:
+  enabled: false
+
+# og-default.jpg for the site and an og.jpg per article from its cover or first
+# image; needs the logo, the claim and --og-background/--og-accent in style.css.
+og:
+  enabled: true
+
+# The Shiki theme of code blocks (https://shiki.style/themes); without it, the
+# build fails as soon as a page has a code block in a language.
+highlighting:
+  theme: nord
+
+# Not rendered by any template — the nav and footer are authored directly in
+# theme/templates. hadley uses this only to order the "More pages" list in
+# llms.txt (otherwise alphabetical URL order).
+navigations:
+  main: [home, spec, docs, packages]
+
+# Rendered on the homepage (section 06) and on /packages/.
+packages:
+  - lang: TypeScript
+    name: '@markantolang/parser'
+    badge: npm
+    install: npm install @markantolang/parser
+    url: https://www.npmjs.com/package/@markantolang/parser
+    linkText: npmjs.com/package/@markantolang/parser
+    desc: 'The reference implementation: tolerant parser, canonical formatter, semantic-AST validator, and the markanto CLI. Zero runtime dependencies; ES modules with type declarations.'
+
+metadata:
+
+  title:
+    aliases:
+      - titel
+
+  description:
+
+  type:
+
+  kind:
+
+dev:
+  port: 8050

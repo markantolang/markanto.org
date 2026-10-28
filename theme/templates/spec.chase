@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{ meta.lang }" class="notranslate">
+
+{@partial partials/head.sort}
+
+<body class="page-doc page-spec">
+
+  {@partial partials/nav.sort}
+
+  <div class="shell doc-shell doc-shell--spec">
+
+    {#if hasToc}
+    <div class="doc-bar" data-pagefind-ignore>
+      <button class="doc-bar-btn" type="button" popovertarget="spec-toc-pop">
+        <span class="doc-bar-ico">&equiv;</span> Contents
+      </button>
+    </div>
+
+    <aside class="doc-outline doc-outline--side" data-pagefind-ignore>
+      {@partial partials/spec-toc.sort}
+    </aside>
+    <div class="doc-outline doc-outline-pop" id="spec-toc-pop" popover aria-label="Contents" data-pagefind-ignore>
+      {@partial partials/spec-toc.sort}
+    </div>
+    {/if}
+
+    <main id="main-content" class="doc-main">
+      <article class="prose">
+        <h1 class="doc-title">{ meta.title }</h1>
+        {#if meta.description}<p class="doc-desc">{ meta.description }</p>{/if}
+        {@raw html.markup}
+      </article>
+    </main>
+
+  </div>
+
+  {@partial partials/footer.sort}
+
+</body>
+
+</html>
