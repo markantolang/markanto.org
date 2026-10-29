@@ -55,6 +55,7 @@ sources:
   spec-0-1-0:
     repository: https://github.com/markantolang/spec
     ref: v0.1.0
+    frozen: true
     checkout: ~/dev/markanto/spec
     root: pages
     urlPath: /spec/0.1.0/
