@@ -1,6 +1,6 @@
 # Deploying markanto.org
 
-The site is built with hadley and states facts about the Markanto 0.1.0
+The site is built with hadley and states facts about the Markanto 0.2.0
 language and the `@markantolang/parser` package that must already be true in
 the specification, the reference repository, and on npm. Follow this order.
 
@@ -30,34 +30,34 @@ the wordmark from Inkscape (Object to Path — no live `<text>`), run
 
 Run from `site/`:
 
-- [ ] **Spec copy in sync.** `bun scripts/spec-sync-check.ts` → exit 0. The
-      `/spec/` page is a hand-maintained copy of the normative
-      `spec/markanto-spec-v0.1.0.md` in markanto-js; the normative source wins.
-      Set `MARKANTO_JS` if it is not at `../../../dev/markanto/markanto-js`.
+- [ ] **Spec at its tag.** `/spec/` and `/spec/0.1.0/` are `spec.md` of
+      [markantolang/spec](https://github.com/markantolang/spec) at the tags
+      `sources` in `config.lima` names, read from `~/dev/markanto/spec`; a new
+      version is a new `ref` there, never an edit here.
 - [ ] **Numbers match reality.** Every figure on the site matches markanto-js
       `main` / its `CHANGELOG.md`:
-      - `home.chase` §04 ledger — conformance corpus (583), test suite (1,898),
+      - `home.chase` §04 ledger — conformance corpus (622), test suite (1,980),
         vendored CommonMark 0.31.2 / GFM cases (672, 0 fail), property soak
         (100k/stream), reserved wrapper tags (3), runtime dependencies (0).
       - `home.chase` §05 — `DEFAULT_MAX_MATRIX_SLOTS` (100 000),
         `HARD_MAX_MATRIX_SLOTS` (1 000 000).
-      - Footer + status strip + nav version pill — `0.1.0`, frozen.
+      - Footer + status strip + nav version pill — `0.2.0`, frozen.
       - `packages.md` — the API surface (`parse` / `format` / `validate` /
         `checkCanonical` / `adoptDocument`) and the CLI (`markanto
         check | format | adopt <file> [--check|--stdout|--strict]`).
-- [ ] **npm.** `npm view @markantolang/parser version` is `0.1.0` and it is the
+- [ ] **npm.** `npm view @markantolang/parser version` is `0.2.0` and it is the
       `latest` dist-tag. The install command on the site
       (`npm install @markantolang/parser`) works from a clean directory.
 - [ ] **Links.** No internal link points at a removed page. External links
       resolve: the GitHub repo, `/blob/main/...` doc links, npm, releases.
 - [ ] **Both themes.** Dark is the default; the toggle still reaches light;
       `theme-color` matches (`#1a1a19` / `#f3f0e6`).
-- [ ] **Build clean.** 5 pages, 4 sitemap URLs, no OG / logo warnings.
+- [ ] **Build clean.** 6 pages, 5 sitemap URLs, no OG / logo warnings.
 
 ## Release order (publish before deploy)
 
-0.1.0 is published and the language line is frozen, so ordinarily nothing in
-markanto-js needs to ship before the site. If a `0.1.x` (or a new language
+0.2.0 is published and the language line is frozen, so ordinarily nothing in
+markanto-js needs to ship before the site. If a `0.2.x` (or a new language
 line) is in flight:
 
 1. Land every release-affecting change in markanto-js from a clean tree.
@@ -68,7 +68,8 @@ line) is in flight:
 4. Commit markanto-js, push `main`, tag, `npm publish`.
 5. Verify externally: `npm view @markantolang/parser version`, an install
    contains the expected API + CLI, the GitHub release exists.
-6. Only now: run `bun scripts/spec-sync-check.ts`, commit this repo, and deploy.
+6. Only now: point `sources` at the new tag of the specification, commit this
+   repo, and deploy.
 7. Live smoke test: nav version dropdown, the package card + link, the spec
    page TOC + scroll-spy, canonical URLs, sitemap, and both themes.
 

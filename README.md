@@ -10,11 +10,11 @@ website's own pages here.
 
 ## Layout
 
-- `config.lima` — the site's settings and navigation
+- `config.lima` — the site's settings and navigation, and the specification, read from
+  [markantolang/spec](https://github.com/markantolang/spec) at its tags
 - `content/pages/` — one bundle per page, written in Markanto
 - `theme/` — templates, stylesheets, scripts, images and fonts
-- `scripts/` — `spec-sync-check.ts`, which checks the specification copy against the repository, and the logo
-  preparation
+- `scripts/` — the logo preparation
 
 ## Building
 

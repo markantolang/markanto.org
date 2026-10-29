@@ -1,6 +1,6 @@
 ---
 title: Docs
-description: The Markanto 0.1.0 specification, the semantic AST, the design decisions, and the reference implementation.
+description: The Markanto 0.2.0 specification, the semantic AST, the design decisions, and the reference implementation.
 urlPath: /docs/
 template: page
 type: page
@@ -28,10 +28,12 @@ back out. Three laws hold:
 
 ## Specification
 
-- **[Specification — 0.1.0](/spec/)** — the normative document: syntax,
+- **[Specification — 0.2.0](/spec/)** — the normative document: syntax,
   semantics, the canonicity laws, the AST, and the block and inline
-  grammars. English is the normative edition. The 0.1.0 language line is
-  frozen: the contract does not change within it.
+  grammars. English is the normative edition. The 0.2.0 language line is
+  frozen: the contract does not change within it. Every version is a tag of
+  [markantolang/spec](https://github.com/markantolang/spec); the
+  [0.1.0 specification](/spec/0.1.0/) stays as it was.
 - **[`src/ast.ts`](https://github.com/markantolang/markanto-js/blob/main/src/ast.ts)**
   — the normative shape of the semantic AST: the TypeScript type of every
   node. Source positions are not part of it.

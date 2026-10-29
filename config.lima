@@ -34,7 +34,37 @@ highlighting:
 # theme/templates. hadley uses this only to order the "More pages" list in
 # llms.txt (otherwise alphabetical URL order).
 navigations:
-  main: [home, spec, docs, packages]
+  main: [home, spec-spec, docs, packages]
+
+# The specification, from its repository at a tag: the current version at
+# /spec/, each earlier one at /spec/<version>/ (docs: sources.md of hadley).
+sources:
+  spec:
+    repository: https://github.com/markantolang/spec
+    ref: v0.2.0
+    checkout: ~/dev/markanto/spec
+    root: pages
+    urlPath: /spec/
+    pages:
+      spec:
+        urlPath: /spec/
+        linktext: Specification
+        description: Markanto 0.2.0 — the normative specification. Syntax, semantics, canonicity laws, AST, and block/inline grammars.
+        template: spec
+        type: page
+  spec-0-1-0:
+    repository: https://github.com/markantolang/spec
+    ref: v0.1.0
+    checkout: ~/dev/markanto/spec
+    root: pages
+    urlPath: /spec/0.1.0/
+    pages:
+      spec:
+        urlPath: /spec/0.1.0/
+        linktext: Specification 0.1.0
+        description: Markanto 0.1.0 — the frozen specification of the first language line.
+        template: spec
+        type: page
 
 # Rendered on the homepage (section 06) and on /packages/.
 packages:
