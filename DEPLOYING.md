@@ -41,7 +41,8 @@ Run from `site/`:
         (100k/stream), reserved wrapper tags (3), runtime dependencies (0).
       - `home.chase` §05 — `DEFAULT_MAX_MATRIX_SLOTS` (100 000),
         `HARD_MAX_MATRIX_SLOTS` (1 000 000).
-      - Footer + status strip + nav version pill — `0.2.0`, frozen.
+      - Footer + status strip — `0.2.0`, the language, frozen.
+      - Nav version pill and its npm link — the version of the package on npm.
       - `packages.md` — the API surface (`parse` / `format` / `validate` /
         `checkCanonical` / `adoptDocument`) and the CLI (`markanto
         check | format | adopt <file> [--check|--stdout|--strict]`).
