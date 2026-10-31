@@ -39,6 +39,14 @@ navigations:
 # The specification, from its repository at a tag: the current version at
 # /spec/, each earlier one at /spec/<version>/ (docs: sources.md of hadley).
 sources:
+  # The numbers of the reference implementation, docs/facts.lima at a commit: templates read them as site.data.markanto.
+  reference:
+    repository: https://github.com/markantolang/markanto-js
+    ref: a3e0e3fb4b98
+    checkout: ~/dev/markanto/markanto-js
+    path: docs
+    data:
+      markanto: facts.lima
   spec:
     repository: https://github.com/markantolang/spec
     ref: v0.2.0

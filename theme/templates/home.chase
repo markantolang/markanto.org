@@ -32,7 +32,7 @@
     <aside class="status">
       <div class="shell status-inner">
         <div class="stat"><span class="stat-label">Independent review</span><span class="stat-value">passed</span></div>
-        <div class="stat"><span class="stat-label">Specification</span><span class="stat-value">0.2.0 · frozen</span></div>
+        <div class="stat"><span class="stat-label">Specification</span><span class="stat-value">{ site.data.markanto.language.version } · frozen</span></div>
         <div class="stat"><span class="stat-label">Reference parser</span><span class="stat-value">on npm</span></div>
         <div class="stat"><span class="stat-label">License</span><span class="stat-value">ISC</span></div>
       </div>
@@ -128,13 +128,13 @@
           <h2 id="numbers-h">Numbers instead<br>of adjectives.</h2>
           <p class="intro">Idempotent reformatting, stable diffs, and safe automated rewrites are only worth as much as the guarantees behind them. What those rest on, counted.</p>
           <div class="ledger ledger--pairs">
-            <div class="ledger-head"><span>Measurement</span><span>0.2.0</span></div>
-            <div class="ledger-row"><strong>Conformance corpus</strong><span class="measure">622<small>cases · normal + strict</small></span></div>
-            <div class="ledger-row"><strong>Test suite</strong><span class="measure">1,982<small>tests, plus <code>verify:node</code></small></span></div>
-            <div class="ledger-row"><strong>CommonMark 0.31.2 / GFM classified</strong><span class="measure">672<small>vendored cases · 0 fail</small></span></div>
-            <div class="ledger-row"><strong>Property soak</strong><span class="measure">100k<small>seeded docs per stream</small></span></div>
+            <div class="ledger-head"><span>Measurement</span><span>{ site.data.markanto.language.version }</span></div>
+            <div class="ledger-row"><strong>Conformance corpus</strong><span class="measure">{ site.data.markanto.corpus.cases | number('en-US') }<small>cases · normal + strict</small></span></div>
+            <div class="ledger-row"><strong>Test suite</strong><span class="measure">{ site.data.markanto.tests.count | number('en-US') }<small>tests, plus <code>verify:node</code></small></span></div>
+            <div class="ledger-row"><strong>CommonMark 0.31.2 / GFM classified</strong><span class="measure">{ site.data.markanto.commonmark.cases | number('en-US') }<small>vendored cases · { site.data.markanto.commonmark.failed } fail</small></span></div>
+            <div class="ledger-row"><strong>Property soak</strong><span class="measure">{ site.data.markanto.soak.documents_per_stream | number('en-US') }<small>seeded docs per stream</small></span></div>
             <div class="ledger-row"><strong>Reserved wrapper tags</strong><span class="measure">3<small>down from 7 in the 0.5.3 drafts</small></span></div>
-            <div class="ledger-row"><strong>Runtime dependencies</strong><span class="measure">0<small>root entry point</small></span></div>
+            <div class="ledger-row"><strong>Runtime dependencies</strong><span class="measure">{ site.data.markanto.package.runtime_dependencies }<small>root entry point</small></span></div>
           </div>
           <p class="ledger-note">The 0.1.0 language design and specification were independently audited (2026-08-30); an independent whole-repo review of the implementation returned a <strong>SHIP / FREEZE</strong> verdict &mdash; 0 blockers, 0 retained major findings. The two changes of 0.2.0 passed an independent review of specification and implementation. The full gate list is in the <a href="https://github.com/markantolang/markanto-js/blob/main/CHANGELOG.md">changelog</a>, and every v0.5.3 &rarr; 0.1.0 language delta is in <a href="https://github.com/markantolang/markanto-js/blob/main/docs/EVOLUTION_V053_TO_010.md"><code>EVOLUTION_V053_TO_010.md</code></a>.</p>
         </div>
@@ -153,7 +153,7 @@
             <article>
               <code>status: "resource"</code>
               <h3>A bounded work budget</h3>
-              <p>The Grid occupancy matrix is bounded by a caller-tunable default (<code>DEFAULT_MAX_MATRIX_SLOTS</code>, 100&thinsp;000) and an absolute, non-overridable ceiling (<code>HARD_MAX_MATRIX_SLOTS</code>, 1&thinsp;000&thinsp;000). An over-budget matrix returns <code>resource</code>, never a native <code>RangeError</code>.</p>
+              <p>The Grid occupancy matrix is bounded by a caller-tunable default (<code>DEFAULT_MAX_MATRIX_SLOTS</code>, { site.data.markanto.limits.default_max_matrix_slots | number('fr-FR') }) and an absolute, non-overridable ceiling (<code>HARD_MAX_MATRIX_SLOTS</code>, { site.data.markanto.limits.hard_max_matrix_slots | number('fr-FR') }). An over-budget matrix returns <code>resource</code>, never a native <code>RangeError</code>.</p>
             </article>
             <article>
               <code>O(n) target</code>

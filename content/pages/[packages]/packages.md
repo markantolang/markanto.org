@@ -98,10 +98,10 @@ failing an unattended import.
 - **Specification — 0.2.0, frozen.** The contract does not change within that
   language line; [0.1.0](/spec/0.1.0/) stays as it was.
 - **TypeScript reference implementation** — parser, canonical formatter,
-  validator, `adopt`, and CLI, verified against a 622-case conformance corpus
+  validator, `adopt`, and CLI, verified against a conformance corpus
   (each case run in normal and strict mode), a compatibility report over the
   vendored CommonMark 0.31.2 / GFM 0.29-gfm suites, hand-curated fixtures, a
-  100 000-document-per-stream property soak, and independent reviews — of the
+  property soak, and independent reviews — of the
   whole repository for 0.1.0, which returned a SHIP / FREEZE verdict, and of
   the 0.2.0 changes.
 

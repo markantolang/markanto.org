@@ -34,15 +34,13 @@ Run from `site/`:
       [markantolang/spec](https://github.com/markantolang/spec) at the tags
       `sources` in `config.lima` names, read from `~/dev/markanto/spec`; a new
       version is a new `ref` there, never an edit here.
-- [ ] **Numbers match reality.** Every figure on the site matches markanto-js
-      `main` / its `CHANGELOG.md`:
-      - `home.chase` §04 ledger — conformance corpus (622), test suite (1,982),
-        vendored CommonMark 0.31.2 / GFM cases (672, 0 fail), property soak
-        (100k/stream), reserved wrapper tags (3), runtime dependencies (0).
-      - `home.chase` §05 — `DEFAULT_MAX_MATRIX_SLOTS` (100 000),
-        `HARD_MAX_MATRIX_SLOTS` (1 000 000).
-      - Footer + status strip — `0.2.0`, the language, frozen.
-      - Nav version pill and its npm link — the version of the package on npm.
+- [ ] **Numbers from markanto-js.** The package's version and the corpus, test,
+      CommonMark, soak and limit figures come from `docs/facts.lima` of markanto-js at
+      the commit `sources.reference.ref` in `config.lima` names, read by the
+      templates as `site.data.markanto`; the site states none by hand. For a new
+      release: run `bun run facts` there, commit, and set `ref` to that commit.
+      The language (`0.2.0`, frozen) follows `sources.spec.ref`, and the reserved
+      wrapper tags (3) are the language's too.
       - `packages.md` — the API surface (`parse` / `format` / `validate` /
         `checkCanonical` / `adoptDocument`) and the CLI (`markanto
         check | format | adopt <file> [--check|--stdout|--strict]`).
