@@ -130,7 +130,7 @@
           <div class="ledger ledger--pairs">
             <div class="ledger-head"><span>Measurement</span><span>0.2.0</span></div>
             <div class="ledger-row"><strong>Conformance corpus</strong><span class="measure">622<small>cases · normal + strict</small></span></div>
-            <div class="ledger-row"><strong>Test suite</strong><span class="measure">1,980<small>tests, plus <code>verify:node</code></small></span></div>
+            <div class="ledger-row"><strong>Test suite</strong><span class="measure">1,982<small>tests, plus <code>verify:node</code></small></span></div>
             <div class="ledger-row"><strong>CommonMark 0.31.2 / GFM classified</strong><span class="measure">672<small>vendored cases · 0 fail</small></span></div>
             <div class="ledger-row"><strong>Property soak</strong><span class="measure">100k<small>seeded docs per stream</small></span></div>
             <div class="ledger-row"><strong>Reserved wrapper tags</strong><span class="measure">3<small>down from 7 in the 0.5.3 drafts</small></span></div>

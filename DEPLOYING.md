@@ -36,7 +36,7 @@ Run from `site/`:
       version is a new `ref` there, never an edit here.
 - [ ] **Numbers match reality.** Every figure on the site matches markanto-js
       `main` / its `CHANGELOG.md`:
-      - `home.chase` §04 ledger — conformance corpus (622), test suite (1,980),
+      - `home.chase` §04 ledger — conformance corpus (622), test suite (1,982),
         vendored CommonMark 0.31.2 / GFM cases (672, 0 fail), property soak
         (100k/stream), reserved wrapper tags (3), runtime dependencies (0).
       - `home.chase` §05 — `DEFAULT_MAX_MATRIX_SLOTS` (100 000),
