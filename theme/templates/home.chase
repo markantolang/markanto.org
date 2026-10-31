@@ -21,7 +21,7 @@
           </div>
         </div>
         <figure class="sample">
-          <figcaption class="sample-head"><span class="sample-file"><img class="sample-ico" src="/favicon.svg" alt="" width="14" height="14" /> NOTES.MD</span><span>MARKANTO 0.2.0</span></figcaption>
+          <figcaption class="sample-head"><span class="sample-file"><img class="sample-ico" src="/favicon.svg" alt="" width="14" height="14" /> NOTES.MD</span><span>MARKANTO { site.data.markanto.language.version }</span></figcaption>
           <pre><code><span class="line"><span class="tok-h"># Release notes</span></span><span class="line"></span><span class="line">Written with <span class="tok-em">*emphasis*</span>, a</span><span class="line"><span class="tok-link">[link](/spec/)</span>, and one</span><span class="line"><span class="sample-swap tok-strong">**strong**</span> marker to fix.</span></code></pre>
           <div class="sample-result">FORMAT &nbsp;&rarr;&nbsp; <b class="sample-verdict">CANONICAL &middot; 0 diagnostics</b></div>
         </figure>
