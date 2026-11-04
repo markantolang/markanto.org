@@ -66,7 +66,7 @@
   /* ── Effect colour (light) ────────────────────────────────────
      One accent, the Shiki/Vitesse cue. `--accent` is the text/link grade
      (contrast-safe on paper); `--accent-bright` is the fill/pop grade.
-     Swap these three + the two dark blocks + `--og-accent` to re-tint.
+     Swap these three + the two dark blocks to re-tint.
      Forest-green alternative: #3a5a40 / #4f9160  (dark: #9cc0a3 / #b6d4bc). */
   --accent:        #2b6cae;   /* Vitesse blue, ~4.9:1 on --paper */
   --accent-bright: #3f8ad0;
@@ -87,7 +87,6 @@
   /* Read literally (not resolved) by lib/read-css-tokens.ts for og-default.jpg —
      plain hex on purpose, never var(). */
   --og-background: #0f1420;
-  --og-accent:     #5b9fd8;
 
   /* Display headings — wide, sturdy. The tracking and weights are tuned
      against Georgia, which is also the fallback on any machine without
