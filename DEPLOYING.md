@@ -6,7 +6,7 @@ the specification, the reference repository, and on npm. Follow this order.
 
 ## Build & serve locally
 
-The site is built with [hadley](https://hadley.sh); its repository is not public yet. From `site/`:
+The site is built with [hadley](https://hadley.sh) ([repository](https://github.com/mkorun/hadley)). From `site/`:
 
 ```sh
 hadley dev              # build + file watcher at http://localhost:8000
