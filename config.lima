@@ -42,7 +42,7 @@ sources:
   # The numbers of the reference implementation, docs/facts.lima at a commit: templates read them as site.data.markanto.
   reference:
     repository: https://github.com/markantolang/markanto-js
-    ref: a3e0e3fb4b98
+    ref: v0.2.3
     checkout: ~/dev/markanto/markanto-js
     path: docs
     data:
