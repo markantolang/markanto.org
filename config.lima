@@ -42,14 +42,14 @@ sources:
   # The numbers of the reference implementation, docs/facts.lima at a commit: templates read them as site.data.markanto.
   reference:
     repository: https://github.com/markantolang/markanto-js
-    ref: v0.2.3
+    ref: 6fbd173
     checkout: ~/dev/markanto/markanto-js
     path: docs
     data:
       markanto: facts.lima
   spec:
     repository: https://github.com/markantolang/spec
-    ref: v0.2.0
+    ref: v0.3.0
     checkout: ~/dev/markanto/spec
     root: pages
     urlPath: /spec/
@@ -57,7 +57,21 @@ sources:
       spec:
         urlPath: /spec/
         linktext: Specification
-        description: Markanto 0.2.0 — the normative specification. Syntax, semantics, canonicity laws, AST, and block/inline grammars.
+        description: Markanto 0.3.0 — the normative specification. Syntax, semantics, canonicity laws, AST, and block/inline grammars.
+        template: spec
+        type: page
+  spec-0-2-0:
+    repository: https://github.com/markantolang/spec
+    ref: v0.2.0
+    frozen: true
+    checkout: ~/dev/markanto/spec
+    root: pages
+    urlPath: /spec/0.2.0/
+    pages:
+      spec:
+        urlPath: /spec/0.2.0/
+        linktext: Specification 0.2.0
+        description: Markanto 0.2.0 — the frozen specification of the second language line.
         template: spec
         type: page
   spec-0-1-0:

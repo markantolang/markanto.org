@@ -1,6 +1,6 @@
 # Deploying markanto.org
 
-The site is built with hadley and states facts about the Markanto 0.2.0
+The site is built with hadley and states facts about the Markanto 0.3.0
 language and the `@markantolang/parser` package that must already be true in
 the specification, the reference repository, and on npm. Follow this order.
 
@@ -30,7 +30,7 @@ the wordmark from Inkscape (Object to Path — no live `<text>`), run
 
 Run from `site/`:
 
-- [ ] **Spec at its tag.** `/spec/` and `/spec/0.1.0/` are `spec.md` of
+- [ ] **Spec at its tag.** `/spec/`, `/spec/0.2.0/` and `/spec/0.1.0/` are `spec.md` of
       [markantolang/spec](https://github.com/markantolang/spec) at the tags
       `sources` in `config.lima` names, read from `~/dev/markanto/spec`; a new
       version is a new `ref` there, never an edit here.
@@ -39,12 +39,12 @@ Run from `site/`:
       the commit `sources.reference.ref` in `config.lima` names, read by the
       templates as `site.data.markanto`; the site states none by hand. For a new
       release: run `bun run facts` there, commit, and set `ref` to that commit.
-      The language (`0.2.0`, frozen) follows `sources.spec.ref`, and the reserved
+      The language (`0.3.0`, frozen) follows `sources.spec.ref`, and the reserved
       wrapper tags (3) are the language's too.
       - `packages.md` — the API surface (`parse` / `format` / `validate` /
         `checkCanonical` / `adoptDocument`) and the CLI (`markanto
         check | format | adopt <file> [--check|--stdout|--strict]`).
-- [ ] **npm.** `npm view @markantolang/parser version` is `0.2.0` and it is the
+- [ ] **npm.** `npm view @markantolang/parser version` is `0.3.0` and it is the
       `latest` dist-tag. The install command on the site
       (`npm install @markantolang/parser`) works from a clean directory.
 - [ ] **Links.** No internal link points at a removed page. External links
@@ -55,8 +55,8 @@ Run from `site/`:
 
 ## Release order (publish before deploy)
 
-0.2.0 is published and the language line is frozen, so ordinarily nothing in
-markanto-js needs to ship before the site. If a `0.2.x` (or a new language
+0.3.0 is published and the language line is frozen, so ordinarily nothing in
+markanto-js needs to ship before the site. If a `0.3.x` (or a new language
 line) is in flight:
 
 1. Land every release-affecting change in markanto-js from a clean tree.
