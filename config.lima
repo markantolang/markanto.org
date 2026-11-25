@@ -113,3 +113,7 @@ metadata:
 
 dev:
   port: 8050
+
+# galley refuses a malformed { … } and stops at an undefined value in a template (hadley docs/config.md)
+strictBraces: true
+strictUndefined: true
